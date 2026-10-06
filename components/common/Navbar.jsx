@@ -91,7 +91,7 @@ export default function Navbar() {
                       {active && <motion.span layoutId="active-pill" className="absolute inset-0 rounded-full bg-white" transition={{ type: "spring", stiffness: 380, damping: 30, mass: 0.7 }} />}
                       <motion.span className="absolute inset-0 rounded-full bg-brand/10" initial={{ opacity: 0, scale: 0.8 }} whileHover={{ opacity: 1, scale: 1 }} transition={{ duration: 0.25 }} />
                       <motion.span className={`relative z-10 block text-[0.78rem] font-semibold tracking-wide ${active ? "text-brand" : "text-navy/80 group-hover:text-navy"}`} whileHover={{ y: -1 }} transition={{ duration: 0.2 }}>{link.label}</motion.span>
-                      {active && <motion.span layoutId="active-dot" className="absolute -bottom-[2px] left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-brand" transition={{ type: "spring", stiffness: 500, damping: 30 }} />}
+                      
                       <motion.span className="absolute bottom-1 left-1/2 h-[1px] w-0 -translate-x-1/2 bg-brand" whileHover={{ width: "45%" }} transition={{ duration: 0.3, ease: "easeOut" }} />
                     </Link>
                   );

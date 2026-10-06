@@ -24,7 +24,7 @@ export default function ServicesOverview() {
 
         <Stagger
           className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6"
-          stagger={0.05}
+          stagger={0.25}
         >
           {services.map((s) => (
             <StaggerItem key={s.slug}>
