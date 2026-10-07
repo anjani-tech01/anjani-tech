@@ -7,16 +7,38 @@ import JsonLd from "@/components/common/JsonLd";
 import { site } from "@/lib/site";
 import { buildMetadata, pageMeta, localBusinessSchema } from "@/lib/seo";
 
-const sora = Sora({ subsets: ["latin"], variable: "--font-sora", display: "swap" });
-const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
-const caveat = Caveat({ subsets: ["latin"], variable: "--font-caveat", display: "swap" });
+const sora = Sora({
+  subsets: ["latin"],
+  variable: "--font-sora",
+  display: "swap",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
+  display: "swap",
+});
 
 export const metadata = {
   metadataBase: new URL(site.url),
   ...buildMetadata(pageMeta.home),
+
+  icons: {
+    icon: "/images/favicon.ico",
+  },
 };
 
-export const viewport = { themeColor: "#0F1F29", width: "device-width", initialScale: 1 };
+export const viewport = {
+  themeColor: "#0F1F29",
+  width: "device-width",
+  initialScale: 1,
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -28,10 +50,15 @@ export default function RootLayout({ children }) {
         >
           Skip to content
         </a>
+
         <JsonLd data={localBusinessSchema} />
+
         <ScrollProgress />
+
         <Navbar />
+
         <main id="main">{children}</main>
+
         <Footer />
       </body>
     </html>
