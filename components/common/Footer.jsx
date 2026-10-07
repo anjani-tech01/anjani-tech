@@ -23,14 +23,17 @@ export default function Footer() {
   const socialLinks = site.social || [];
 
   return (
-    <footer className="relative w-full overflow-hidden bg-white pt-8">
+    <footer className="relative w-full overflow-hidden bg-white pt-6 sm:pt-8">
       {/* Background Glow */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-40 bottom-0 h-[300px] w-[300px] bg-brand-dark/[0.05] blur-[110px]"
       />
 
-      <div aria-hidden="true" className="pointer-events-none absolute -left-40 bottom-0 h-[280px] w-[280px] bg-brand/[0.04] blur-[100px]" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-40 bottom-0 h-[280px] w-[280px] bg-brand/[0.04] blur-[100px]"
+      />
 
       {/* FULL WIDTH FOOTER */}
       <div className="relative w-full overflow-hidden border-y border-white/[0.08] bg-[#07090b]">
@@ -38,21 +41,25 @@ export default function Footer() {
         <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/60 to-transparent" />
 
         {/* CONTENT */}
-        <div className="w-full px-6 py-5 sm:px-8 sm:py-6 lg:px-12 lg:py-7 xl:px-16">
+        <div className="w-full px-4 py-8 sm:px-8 sm:py-8 lg:px-12 lg:py-7 xl:px-16">
           {/* MAIN GRID */}
-          <div className="grid gap-6 lg:grid-cols-[1.7fr_1fr_1fr] lg:gap-10">
+          <div className="grid gap-8 sm:gap-10 lg:grid-cols-[1.7fr_1fr_1fr] lg:gap-10">
             {/* BRAND */}
             <div className="relative">
               <div className="mb-3 flex items-center gap-2">
                 <span className="h-px w-5 bg-brand" />
-                <span className="text-[7px] font-medium uppercase tracking-[0.2em] text-white/40">Technology & Infrastructure</span>
+                <span className="text-[9px] sm:text-[7px] font-medium uppercase tracking-[0.2em] text-white/40">
+                  Technology & Infrastructure
+                </span>
               </div>
 
               <Link href="/" className="group block">
-                <h2 className="text-[clamp(2.5rem,6vw,5.5rem)] font-black leading-[0.76] tracking-[-0.075em] text-white">ANJANI</h2>
+                <h2 className="text-[clamp(2.5rem,8vw,5.5rem)] font-black leading-[0.85] sm:leading-[0.76] tracking-[-0.075em] text-white">
+                  ANJANI
+                </h2>
 
-                <div className="mt-1.5 flex items-center gap-2">
-                  <span className="text-[clamp(1rem,1.8vw,1.7rem)] font-semibold tracking-[-0.045em] text-brand transition-colors duration-300 group-hover:text-white">
+                <div className="mt-2 sm:mt-1.5 flex items-center gap-2">
+                  <span className="text-[clamp(1.1rem,2.5vw,1.7rem)] font-semibold tracking-[-0.045em] text-brand transition-colors duration-300 group-hover:text-white">
                     TECHNOLOGIES
                   </span>
 
@@ -62,13 +69,13 @@ export default function Footer() {
                 </div>
               </Link>
 
-              <p className="mt-4 max-w-[400px] text-[12px] leading-5 text-white/40">
+              <p className="mt-4 max-w-[400px] text-[13px] sm:text-[12px] leading-relaxed sm:leading-5 text-white/50 sm:text-white/40">
                 IT infrastructure, networking and technology solutions designed to help modern businesses stay connected, secure and ready
                 for growth.
               </p>
 
               {/* Social */}
-              <div className="mt-4 flex gap-1.5">
+              <div className="mt-5 sm:mt-4 flex flex-wrap gap-2 sm:gap-1.5">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}
@@ -76,11 +83,11 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="group flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/[0.02] transition-all duration-300 hover:-translate-y-0.5 hover:border-brand hover:bg-brand"
+                    className="group flex h-9 w-9 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-white/10 bg-white/[0.02] transition-all duration-300 hover:-translate-y-0.5 hover:border-brand hover:bg-brand active:scale-95"
                   >
                     <svg
                       viewBox="0 0 24 24"
-                      className="h-3 w-3 fill-current text-white/50 transition-colors duration-300 group-hover:text-white"
+                      className="h-3.5 w-3.5 sm:h-3 sm:w-3 fill-current text-white/50 transition-colors duration-300 group-hover:text-white"
                       aria-hidden="true"
                     >
                       <path d={paths[social.icon]} />
@@ -90,75 +97,82 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* EXPLORE */}
-            <div>
-              <div className="mb-3 flex items-center justify-between">
-                <span className="text-[7px] font-semibold uppercase tracking-[0.2em] text-white/35">Explore</span>
+            {/* EXPLORE & CONNECT FLEX CONTAINER FOR MOBILE */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:contents">
+              {/* EXPLORE */}
+              <div>
+                <div className="mb-3 flex items-center justify-between border-b border-white/10 pb-2 lg:border-none lg:pb-0">
+                  <span className="text-[9px] sm:text-[7px] font-semibold uppercase tracking-[0.2em] text-white/50 sm:text-white/35">
+                    Explore
+                  </span>
 
-                <span className="text-[7px] text-white/20">01</span>
-              </div>
-
-              <ul>
-                {navLinks.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="group flex items-center justify-between border-b border-white/[0.055] py-2 text-[11px] text-white/55 transition-colors duration-300 hover:text-white"
-                    >
-                      <span>{link.label}</span>
-
-                      <MoveUpRight className="h-2.5 w-2.5 -translate-x-1 translate-y-1 text-brand opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* CONNECT */}
-            <div>
-              <div className="mb-3 flex items-center justify-between">
-                <span className="text-[7px] font-semibold uppercase tracking-[0.2em] text-white/35">Connect</span>
-
-                <span className="text-[7px] text-white/20">02</span>
-              </div>
-
-              {/* Location */}
-              <div className="border-b border-white/[0.055] pb-3">
-                <div className="mb-1.5 flex items-center gap-1.5 text-white/35">
-                  <MapPin className="h-3 w-3 text-brand" />
-
-                  <span className="text-[7px] uppercase tracking-[0.15em]">Headquarters</span>
+                  <span className="text-[9px] sm:text-[7px] text-white/30 sm:text-white/20">01</span>
                 </div>
 
-                <p className="text-[11px] text-white/55">Ahmedabad, Gujarat</p>
+                <ul>
+                  {navLinks.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        className="group flex items-center justify-between border-b border-white/[0.055] py-2.5 sm:py-2 text-[13px] sm:text-[11px] text-white/65 sm:text-white/55 transition-colors duration-300 hover:text-white"
+                      >
+                        <span>{link.label}</span>
+
+                        <MoveUpRight className="h-3 w-3 sm:h-2.5 sm:w-2.5 -translate-x-1 translate-y-1 text-brand opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              {/* CTA */}
-              <Link
-                href="/contact"
-                className="group mt-3 flex items-center justify-between rounded-md border border-white/10 bg-white/[0.02] px-3 py-2.5 transition-all duration-300 hover:border-brand/50 hover:bg-brand"
-              >
-                <div>
-                  <p className="text-[7px] uppercase tracking-[0.14em] text-white/30 transition-colors group-hover:text-white/70">
-                    Have a project?
-                  </p>
+              {/* CONNECT */}
+              <div>
+                <div className="mb-3 flex items-center justify-between border-b border-white/10 pb-2 lg:border-none lg:pb-0">
+                  <span className="text-[9px] sm:text-[7px] font-semibold uppercase tracking-[0.2em] text-white/50 sm:text-white/35">
+                    Connect
+                  </span>
 
-                  <p className="mt-0.5 text-[11px] font-medium text-white">Let's talk</p>
+                  <span className="text-[9px] sm:text-[7px] text-white/30 sm:text-white/20">02</span>
                 </div>
 
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/[0.06] text-white transition-all duration-300 group-hover:bg-white group-hover:text-brand">
-                  <ArrowUpRight className="h-3 w-3" />
-                </span>
-              </Link>
+                {/* Location */}
+                <div className="border-b border-white/[0.055] pb-3">
+                  <div className="mb-1.5 flex items-center gap-1.5 text-white/40 sm:text-white/35">
+                    <MapPin className="h-3.5 w-3.5 sm:h-3 sm:w-3 text-brand" />
+
+                    <span className="text-[8px] sm:text-[7px] uppercase tracking-[0.15em]">Headquarters</span>
+                  </div>
+
+                  <p className="text-[12px] sm:text-[11px] text-white/70 sm:text-white/55">Ahmedabad, Gujarat</p>
+                </div>
+
+                {/* CTA */}
+                <Link
+                  href="/contact"
+                  className="group mt-4 sm:mt-3 flex items-center justify-between rounded-lg sm:rounded-md border border-white/10 bg-white/[0.03] sm:bg-white/[0.02] p-3.5 sm:px-3 sm:py-2.5 transition-all duration-300 hover:border-brand/50 hover:bg-brand active:scale-[0.99]"
+                >
+                  <div>
+                    <p className="text-[8px] sm:text-[7px] uppercase tracking-[0.14em] text-white/40 sm:text-white/30 transition-colors group-hover:text-white/70">
+                      Have a project?
+                    </p>
+
+                    <p className="mt-0.5 text-[12px] sm:text-[11px] font-medium text-white">Let's talk</p>
+                  </div>
+
+                  <span className="flex h-7 w-7 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-white/[0.08] sm:bg-white/[0.06] text-white transition-all duration-300 group-hover:bg-white group-hover:text-brand">
+                    <ArrowUpRight className="h-3.5 w-3.5 sm:h-3 sm:w-3" />
+                  </span>
+                </Link>
+              </div>
             </div>
           </div>
 
           {/* DIVIDER */}
-          <div className="mt-6 h-px bg-gradient-to-r from-white/[0.1] via-white/[0.04] to-transparent" />
+          <div className="mt-8 sm:mt-6 h-px bg-gradient-to-r from-white/[0.1] via-white/[0.04] to-transparent" />
 
           {/* BOTTOM */}
-          <div className="flex flex-col gap-2 pt-3 text-[8px] text-white/30 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+          <div className="flex flex-col gap-3 pt-4 sm:pt-3 text-[10px] sm:text-[8px] text-white/40 sm:text-white/30 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-wrap items-center gap-x-2 sm:gap-x-3 gap-y-1">
               <p>© {new Date().getFullYear()} Anjani Technologies.</p>
 
               <span className="hidden h-1 w-1 rounded-full bg-white/15 sm:block" />
@@ -178,7 +192,9 @@ export default function Footer() {
           aria-hidden="true"
           className="pointer-events-none absolute -bottom-3 left-1/2 hidden -translate-x-1/2 select-none whitespace-nowrap lg:block"
         >
-          <span className="text-[clamp(6rem,13vw,13rem)] font-black leading-none tracking-[-0.1em] text-white/[0.018]">ANJANI</span>
+          <span className="text-[clamp(6rem,13vw,13rem)] font-black leading-none tracking-[-0.1em] text-white/[0.018]">
+            ANJANI
+          </span>
         </div>
       </div>
     </footer>

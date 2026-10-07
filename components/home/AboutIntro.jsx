@@ -14,7 +14,7 @@ export default function AboutIntro() {
       aria-labelledby="about-intro-title"
       className="relative isolate overflow-hidden bg-[#F5F7FA] py-12 text-slate-900 sm:py-14 lg:py-16"
     >
-      <div className="container-x flex min-h-[360px] items-center lg:min-h-[390px]">
+      <div className="container-x flex flex-col sm:flex-row min-h-[360px] items-center lg:min-h-[390px]">
         {/* CONTENT */}
         <Reveal className="relative z-10 w-full lg:w-[44%]">
           <div className="max-w-xl">
@@ -39,9 +39,9 @@ export default function AboutIntro() {
           </div>
         </Reveal>
 
-        {/* IMAGE - 58% WIDTH / FULL IMAGE */}
+        {/* IMAGE - BOTTOM ON MOBILE, ABSOLUTE RIGHT ON DESKTOP */}
         <motion.div
-          className="absolute right-0 top-1/2 hidden w-[58%] -translate-y-1/2 sm:block"
+          className="relative mt-8 w-full sm:absolute sm:right-0 sm:top-1/2 sm:mt-0 sm:w-[58%] sm:-translate-y-1/2"
           initial={reduce ? false : { opacity: 0, x: 30 }}
           whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}

@@ -13,8 +13,9 @@ export default function Hero() {
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative isolate h-[calc(100svh-72px)] min-h-[560px] max-h-[760px] overflow-hidden bg-navy text-white"
+      className="relative isolate w-full bg-navy text-white overflow-hidden flex items-center min-h-[calc(100vh-72px)] py-12 lg:py-0 lg:h-[calc(100svh-72px)] lg:min-h-[560px] lg:max-h-[760px]"
     >
+      {/* BACKGROUND IMAGE */}
       <motion.div
         className="absolute inset-0 -z-30 overflow-hidden"
         animate={reduce ? undefined : { scale: [1, 1.025] }}
@@ -31,78 +32,81 @@ export default function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-right"
+          className="object-cover object-center lg:object-right"
         />
       </motion.div>
 
-      {/* LEFT BLACK OVERLAY ONLY */}
+      {/* GRADIENT OVERLAYS */}
+      {/* Mobile: Top-to-bottom dark gradient | Desktop: Left-to-right gradient */}
       <div
         aria-hidden="true"
-        className="absolute inset-y-0 left-0 -z-20 w-full bg-gradient-to-r from-black/95 via-black/75 to-transparent lg:w-[70%]"
+        className="absolute inset-0 -z-20 bg-gradient-to-b from-black/95 via-black/90 to-navy/95 lg:bg-gradient-to-r lg:from-black/95 lg:via-black/75 lg:to-transparent lg:w-[70%]"
       />
 
-      <div aria-hidden="true" className="absolute inset-y-0 left-0 -z-20 w-[45%] bg-black/20 blur-2xl" />
+      <div aria-hidden="true" className="absolute inset-y-0 left-0 -z-20 w-full lg:w-[45%] bg-black/20 blur-2xl pointer-events-none" />
 
-      <div className="container-x relative flex h-full items-center">
+      {/* MAIN CONTENT CONTAINER */}
+      <div className="container-x relative w-full h-full flex items-center py-4 lg:py-0">
         <div className="grid w-full items-center gap-8 lg:grid-cols-[1.15fr_0.85fr]">
           <Stagger immediate stagger={0.08} delay={0.08}>
-            {/* BRAND MESSAGE */}
+            
+            {/* 1. BRAND BADGE */}
             <StaggerItem>
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/20 px-3 py-1.5 backdrop-blur-sm">
-                <span className="h-1.5 w-1.5 rounded-full bg-brand shadow-[0_0_8px_rgba(247,134,30,0.8)]" />
+              <div className="mb-4 inline-flex max-w-full flex-wrap items-center gap-1.5 sm:gap-2 rounded-full border border-white/15 bg-black/40 px-3 py-1.5 backdrop-blur-md">
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand shadow-[0_0_8px_rgba(247,134,30,0.8)]" />
 
-                <span className="text-[9px] font-bold uppercase tracking-[0.22em] text-white/85">Trust</span>
+                <span className="text-[9px] font-bold uppercase tracking-[0.18em] sm:tracking-[0.22em] text-white/85">Trust</span>
+                <span className="text-white/30 text-[9px]">\</span>
 
-                <span className="text-white/30">/</span>
+                <span className="text-[9px] font-bold uppercase tracking-[0.18em] sm:tracking-[0.22em] text-white/85">Technology</span>
+                <span className="text-white/30 text-[9px]">\</span>
 
-                <span className="text-[9px] font-bold uppercase tracking-[0.22em] text-white/85">Technology</span>
-
-                <span className="text-white/30">/</span>
-
-                <span className="text-[9px] font-bold uppercase tracking-[0.22em] text-white/85">Solutions</span>
+                <span className="text-[9px] font-bold uppercase tracking-[0.18em] sm:tracking-[0.22em] text-white/85">Solutions</span>
               </div>
             </StaggerItem>
 
-            {/* SEO EYEBROW */}
+            {/* 2. SEO EYEBROW */}
             <StaggerItem>
-              <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-brand sm:text-xs">
+              <p className="mb-2.5 text-[10px] font-semibold uppercase tracking-[0.15em] sm:tracking-[0.18em] text-brand sm:text-xs leading-normal">
                 IT Infrastructure &amp; Technology Solutions in Ahmedabad
               </p>
             </StaggerItem>
 
-            {/* PRIMARY SEO HEADING */}
+            {/* 3. MAIN HEADING */}
             <StaggerItem>
               <h1
                 id="hero-title"
-                className="max-w-3xl font-display text-[1.8rem] font-bold leading-[1.08] tracking-[-0.035em] !text-white sm:text-3xl md:text-[2.35rem] lg:text-[2.8rem] xl:text-[3rem]"
+                className="max-w-3xl font-display text-[1.65rem] xs:text-[1.85rem] font-bold leading-[1.15] tracking-[-0.03em] !text-white sm:text-3xl md:text-[2.35rem] lg:text-[2.8rem] xl:text-[3rem]"
               >
                 IT Infrastructure &amp; Networking Solutions for <span className="text-brand">Smarter Business</span>
               </h1>
             </StaggerItem>
 
-            {/* SEO SUPPORTING CONTENT */}
+            {/* 4. PARAGRAPH TEXT */}
             <StaggerItem>
-              <p className="mt-5 max-w-2xl text-xs leading-6 text-white/80 sm:text-sm sm:leading-7">
+              <p className="mt-4 max-w-2xl text-xs sm:text-sm leading-relaxed sm:leading-7 text-white/80">
                 Anjani Technologies is a trusted IT solutions provider in Ahmedabad, delivering reliable business technology solutions
                 including networking, LAN, Wi-Fi, structured cabling, data centre, servers, storage, CCTV surveillance, computing and
                 communication solutions for businesses, educational institutions and organizations.
               </p>
             </StaggerItem>
 
-            {/* CTA */}
+            {/* 5. CTA BUTTONS */}
             <StaggerItem>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Button href="/services">Explore IT Services</Button>
+              <div className="mt-6 flex flex-col sm:flex-row flex-wrap gap-3 w-full sm:w-auto">
+                <Button href="/services" className="w-full sm:w-auto justify-center text-center">
+                  Explore IT Services
+                </Button>
 
-                <Button href="/contact" variant="outline" icon="headset">
+                <Button href="/contact" variant="outline" icon="headset" className="w-full sm:w-auto justify-center text-center">
                   Talk to Our IT Experts
                 </Button>
               </div>
             </StaggerItem>
 
-            {/* SEO TRUST LINE */}
+            {/* 6. TRUST TAGS */}
             <StaggerItem>
-              <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-[9px] font-semibold uppercase tracking-[0.12em] text-white/45">
+              <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.12em] text-white/50 sm:gap-x-5">
                 <span>Networking</span>
                 <span className="h-1 w-1 rounded-full bg-brand/70" />
                 <span>Data Centre</span>
@@ -112,9 +116,10 @@ export default function Hero() {
                 <span>Business IT</span>
               </div>
             </StaggerItem>
+
           </Stagger>
 
-          {/* RIGHT INFRASTRUCTURE PANEL */}
+          {/* RIGHT INFRASTRUCTURE PANEL (Preserved completely for desktop) */}
           <Stagger immediate stagger={0.1} delay={0.4} className="hidden justify-end lg:flex">
             <div className="w-full max-w-[275px]">
               <div className="overflow-hidden rounded-md border border-white/15 bg-black/10 p-1.5 backdrop-blur-md">
